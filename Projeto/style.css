@@ -1,0 +1,46 @@
+*{
+    font-family: sans-serif;
+    color: black;
+}
+#folder{
+    border: 2px solid black;
+    height: 600px;
+    width: 500px;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    top: 50px;
+}
+#titulo{
+    margin-top: 10%;
+}
+#textos{
+    font-size: 15px;
+    text-align: left;
+    margin: 10px;
+    position: relative;
+    left: 50px;
+}
+#textos2{
+    position: relative;
+    top: 15px;
+}
+#textos3{
+    position: relative;
+    top: 50px;
+}
+#bool{
+    position: relative;
+    top: 15px;
+}
+#campos{
+    text-align: left;
+    margin: 10px;
+    position: relative;
+    left: 50px;
+}
+#botao{
+    position: relative;
+    top: 30px;
+    right: 50px;
+}
