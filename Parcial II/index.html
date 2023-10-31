@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhe conosco</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div id="folder">
+        <div id="titulo"><h1>Trabalhe conosco!</h1></div>
+        <div id="textos">Nome:</div>
+        <div id="campos"><input type="text" size="50"></div>
+        <div id="textos">CPF:</div>
+        <div id="campos"><input type="text" id="cpfInput" size="50"></div>
+        <div id="textos">Telefone:</div>
+        <div id="campos"><input type="text" size="50"></div>
+        <div id="textos">Anexar currículo:</div>
+        <div id="botao"><input type="file"></div>
+        <div id="textos3">
+            <div>Sexo:</div>
+            <div id="bool">
+                <label>
+                    <input type="radio" name="opcao" value="opcao1"> Masculino
+                </label>
+                <label>
+                    <input type="radio" name="opcao" value="opcao2"> Feminino
+                </label>
+                <div id="botao2"><input type="submit" onclick="validarCPF()"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function formatarCPF(cpf) {
+            cpf = cpf.replace(/\D/g, '');
+            if (cpf.length <= 3) {
+                return cpf;
+            } else if (cpf.length <= 6) {
+                return cpf.replace(/(\d{3})(\d*)/, "$1.$2");
+            } else if (cpf.length <= 9) {
+                return cpf.replace(/(\d{3})(\d{3})(\d*)/, "$1.$2.$3");
+            } else {
+                return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+            }
+        }
+
+        function validarCPF() {
+            var cpfInput = document.getElementById("cpfInput");
+            var cpf = cpfInput.value;
+            cpf = cpf.replace(/\D/g, '');
+
+            if (cpf.length !== 11) {
+                alert("CPF inválido: deve conter 11 dígitos numéricos.");
+                return;
+            }
+
+            var regex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+            if (!regex.test(cpf)) {
+            }
+            
+            alert("CPF válido.");
+        }
+
+        var cpfInput = document.getElementById("cpfInput");
+        cpfInput.addEventListener("input", function (event) {
+            var formattedCPF = formatarCPF(event.target.value);
+            event.target.value = formattedCPF;
+        });
+    </script>
+</body>
+</html>
